@@ -5,7 +5,14 @@
 //      1450 => 1 + 4 + 5 + 0 => 10 => 1 + 0 => 1
 
 const numberReducer = (num) => {
-    // 實作寫在這裡
+    num = num.toString();
+    while (num.length > 1) {
+        num = (Array.from(num).reduce((acc, cur) => {
+            return Number(acc) + Number(cur);
+        }, 0)).toString();
+    }
+
+    return num;
 }
 
 console.log(numberReducer(9527)) // 印出 5
